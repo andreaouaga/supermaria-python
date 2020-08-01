@@ -23,11 +23,17 @@ class MainMenu:
         
 
     def setup_player(self):
-        pass
+        self.player_image = tools.get_image(
+            setup.GRAPHICS['mario_bros'],
+            178, 32, 12, 16, (0, 0, 0), C.BG_MULTI)
 
     def setup_cursor(self):
-        pass
+        self.cursor_image = tools.get_image(
+            setup.GRAPHICS['title_screen'], 
+            3, 155, 8, 8, (255, 0, 220), C.BG_MULTI)
 
     def update(self, surface):
         surface.blit(self.background, self.viewpoint)
         surface.blit(self.caption, (170, 100))
+        surface.blit(self.cursor_image, (220, 360))
+        surface.blit(self.player_image, (200, 495))
